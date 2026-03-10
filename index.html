@@ -119,6 +119,50 @@ height:100;
 
 z-index:10;
 }
+    .dropdown{
+position:relative;
+}
+
+.dropdown-content{
+
+position:absolute;
+top:50px;
+
+display:flex;
+flex-direction:column;
+gap:8px;
+
+opacity:0;
+transform:translateY(-10px);
+
+background:rgba(20,20,40,0.8);
+backdrop-filter:blur(6px);
+
+padding:10px;
+border-radius:10px;
+
+transition:0.3s;
+}
+
+.dropdown-content a{
+
+color:white;
+text-decoration:none;
+
+padding:8px 14px;
+border-radius:6px;
+
+transition:0.2s;
+}
+
+.dropdown-content a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+.dropdown:hover .dropdown-content{
+opacity:1;
+transform:translateY(0);
+}
 
 @keyframes slash{
 from{
@@ -160,10 +204,43 @@ transform: translateY(0);
 
 <div class="ninja" id="ninja"></div>
 <div class="menu">
-    <button class="menu-btn">Get Started</button>
-    <button class="menu-btn">Explore Worlds</button>
-    <button class="menu-btn">Learn More</button>
-    <button class="menu-btn">Contact Us</button>
+
+<div class="dropdown">
+<button class="menu-btn">Get Started</button>
+<div class="dropdown-content">
+<a href="#">Create Account</a>
+<a href="#">Login</a>
+<a href="#">Tutorial</a>
+</div>
+</div>
+
+<div class="dropdown">
+<button class="menu-btn">Explore Worlds</button>
+<div class="dropdown-content">
+<a href="#">Fantasy World</a>
+<a href="#">Sci-Fi World</a>
+<a href="#">Adventure World</a>
+</div>
+</div>
+
+<div class="dropdown">
+<button class="menu-btn">Learn More</button>
+<div class="dropdown-content">
+<a href="#">About Us</a>
+<a href="#">How It Works</a>
+<a href="#">Technology</a>
+</div>
+</div>
+
+<div class="dropdown">
+<button class="menu-btn">Contact Us</button>
+<div class="dropdown-content">
+<a href="#">Email</a>
+<a href="#">Discord</a>
+<a href="#">Support</a>
+</div>
+</div>
+
 </div>
 <h1 style="color: white">Dream Worlds</h1>
 <p style="color: white">Enter the realm beyond imagination</p>
@@ -211,6 +288,7 @@ open = false;
 
 
 </html>
+
 
 
 
