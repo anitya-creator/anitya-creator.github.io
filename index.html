@@ -163,6 +163,74 @@ background:rgba(255,255,255,0.2);
 opacity:1;
 transform:translateY(0);
 }
+    .signup-panel{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:rgba(0,0,0,0.6);
+
+opacity:0;
+pointer-events:none;
+
+transition:0.4s;
+}
+
+.signup-panel.show{
+
+opacity:1;
+pointer-events:auto;
+
+}
+
+.signup-box{
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+
+padding:40px;
+border-radius:12px;
+
+display:flex;
+flex-direction:column;
+
+gap:12px;
+
+width:320px;
+}
+
+.signup-box input{
+
+padding:10px;
+border:none;
+border-radius:6px;
+}
+
+.signup-box button{
+
+padding:10px;
+border:none;
+border-radius:6px;
+
+background:#4f46e5;
+color:white;
+
+cursor:pointer;
+}
+
+.close-btn{
+
+background:#ef4444;
+
+}
 
 @keyframes slash{
 from{
@@ -204,11 +272,27 @@ transform: translateY(0);
 
 <div class="ninja" id="ninja"></div>
 <div class="menu">
+    <div class="signup-panel" id="signupPanel">
+
+<div class="signup-box">
+
+<h2>Create Account</h2>
+
+<input type="text" placeholder="Username">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+
+<button>Create</button>
+<button class="close-btn" id="closePanel">Close</button>
+
+</div>
+
+</div>
 
 <div class="dropdown">
 <button class="menu-btn">Get Started</button>
 <div class="dropdown-content">
-<a href="signup.html">Create Account</a>
+<a href="#" id="openSignup">Create Account</a>
 <a href="#">Login</a>
 <a href="#">Tutorial</a>
 </div>
@@ -282,12 +366,29 @@ open = false;
 }
 
 });
+    const openSignup = document.getElementById("openSignup");
+const signupPanel = document.getElementById("signupPanel");
+const closePanel = document.getElementById("closePanel");
+
+openSignup.addEventListener("click", (e) => {
+
+e.preventDefault();
+signupPanel.classList.add("show");
+
+});
+
+closePanel.addEventListener("click", () => {
+
+signupPanel.classList.remove("show");
+
+});
 </script>
 </body>
 
 
 
 </html>
+
 
 
 
