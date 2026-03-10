@@ -176,7 +176,10 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:rgba(0,0,0,0.6);
+
+background:rgba(0,0,0,0.65);
+backdrop-filter:blur(4px);
+
 
 opacity:0;
 pointer-events:none;
@@ -193,35 +196,52 @@ pointer-events:auto;
 
 .signup-box{
 
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+background:rgba(20,20,30,0.85);
 
 padding:40px;
-border-radius:12px;
+border-radius:14px;
 
 display:flex;
 flex-direction:column;
+gap:14px;
 
-gap:12px;
+width:340px;
 
-width:320px;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+
+animation:popup 0.35s ease;
 }
 
 .signup-box input{
 
-padding:10px;
+padding:12px;
+
+border-radius:8px;
 border:none;
-border-radius:6px;
+
+background:#1f1f2e;
+color:white;
+
+font-size:15px;
+
+outline:none;
+}
+    .signup-box input:focus{
+box-shadow:0 0 0 2px #6a5cff;
 }
 
 .signup-box button{
 
-padding:10px;
-border:none;
-border-radius:6px;
+padding:12px;
 
-background:#4f46e5;
+border:none;
+border-radius:8px;
+
+background:linear-gradient(135deg,#6a5cff,#4c3cff);
+
 color:white;
+
+font-size:15px;
 
 cursor:pointer;
 }
@@ -229,6 +249,23 @@ cursor:pointer;
 .close-btn{
 
 background:#ef4444;
+
+}
+    .menu.dim{
+opacity:0.4;
+pointer-events:none;
+}
+    @keyframes popup{
+
+from{
+transform:scale(0.85);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
 
 }
 
@@ -382,12 +419,32 @@ closePanel.addEventListener("click", () => {
 signupPanel.classList.remove("show");
 
 });
+    document.addEventListener("keydown",(e)=>{
+
+if(e.key==="Escape"){
+signupPanel.classList.remove("show");
+}
+
+});
+    const menu = document.querySelector(".menu");
+
+openSignup.addEventListener("click",(e)=>{
+e.preventDefault();
+signupPanel.classList.add("show");
+menu.classList.add("dim");
+});
+
+closePanel.addEventListener("click",()=>{
+signupPanel.classList.remove("show");
+menu.classList.remove("dim");
+});
 </script>
 </body>
 
 
 
 </html>
+
 
 
 
