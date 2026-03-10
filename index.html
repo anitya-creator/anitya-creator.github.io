@@ -52,14 +52,6 @@ cursor:pointer;
 .slash{
 animation: slash 0.8s steps(6);
 }
-.menu{
-position:absolute;
-top:40px;
-left:160px;
-
-display:flex;
-gap:15px;
-}
 
 .menu{
 position:absolute;
@@ -71,7 +63,7 @@ gap:45px;   /* more spacing */
 }
 
 .menu-btn{
-transition:all 0.4s ease;
+
 opacity:0;
 transform:translateX(-20px);
 
@@ -115,7 +107,7 @@ top:25px;
 right:20px;
 
 width:200px;   /* adjust size */
-height:100;
+height:100px;
 
 z-index:10;
 }
@@ -309,7 +301,7 @@ transform: translateY(0);
 
 <div class="ninja" id="ninja"></div>
 <div class="menu">
-    <div class="signup-panel" id="signupPanel">
+   
 
 <div class="signup-box">
 
@@ -367,6 +359,7 @@ transform: translateY(0);
 <p style="color: white">Enter the realm beyond imagination</p>
 
 </div>
+     <div class="signup-panel" id="signupPanel">
 <script>
 
 const ninja = document.getElementById("ninja");
@@ -407,12 +400,7 @@ open = false;
 const signupPanel = document.getElementById("signupPanel");
 const closePanel = document.getElementById("closePanel");
 
-openSignup.addEventListener("click", (e) => {
 
-e.preventDefault();
-signupPanel.classList.add("show");
-
-});
 
 closePanel.addEventListener("click", () => {
 
@@ -444,6 +432,7 @@ menu.classList.remove("dim");
 
 
 </html>
+
 
 
 
