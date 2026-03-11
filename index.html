@@ -279,6 +279,91 @@ color:white;
 line-height:1.5;
 text-align:center;
 }
+    .tutorial-box{
+
+width:520px;
+padding:50px;
+
+background:rgba(10,10,30,0.85);
+backdrop-filter:blur(12px);
+
+border-radius:20px;
+
+box-shadow:
+0 30px 80px rgba(0,0,0,0.8),
+0 0 40px rgba(120,100,255,0.4);
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+color:white;
+text-align:center;
+
+animation:popup 0.5s ease;
+
+}
+
+.tutorial-ninja{
+
+width:90px;
+margin-bottom:10px;
+
+animation:float 3s ease-in-out infinite;
+
+}
+
+.tutorial-steps{
+
+margin-top:20px;
+display:flex;
+flex-direction:column;
+gap:18px;
+
+}
+
+.step{
+
+display:flex;
+align-items:center;
+gap:14px;
+
+background:rgba(255,255,255,0.05);
+padding:12px 18px;
+
+border-radius:12px;
+
+transition:0.3s;
+
+}
+
+.step:hover{
+
+background:rgba(255,255,255,0.12);
+transform:translateX(6px);
+
+}
+
+.step span{
+
+font-size:22px;
+
+}
+
+.step p{
+
+margin:0;
+color:#e0e0ff;
+
+}
+
+@keyframes float{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0);}
+
+}
     @keyframes popup{
 
 from{
@@ -409,17 +494,32 @@ transform: translateY(0);
 </div>
         <div class="signup-panel" id="tutorialPanel">
 
-<div class="signup-box">
+<div class="tutorial-box">
 
-<h2>Entering Dream Worlds</h2>
+<img src="ChatGPT_Image_Mar_9__2026__01_11_08_AM-removebg-preview.png" class="tutorial-ninja">
 
-<p>⚔ Click the ninja to reveal the world menu.</p>
+<h2>Welcome to Dream Worlds</h2>
 
-<p>Explore different realms like Fantasy, Sci-Fi, and Adventure.</p>
+<div class="tutorial-steps">
 
-<p>Create an account to begin your journey.</p>
+<div class="step">
+<span></span>
+<p>Click the ninja to reveal the world menu</p>
+</div>
 
-<button class="close-btn" id="closeTutorial">Close</button>
+<div class="step">
+<span></span>
+<p>Choose a world and begin your experience</p>
+</div>
+
+<div class="step">
+<span></span>
+<p>Create an account to save your journey</p>
+</div>
+
+</div>
+
+<button class="close-btn" id="closeTutorial">Begin</button>
 
 </div>
 
@@ -527,6 +627,7 @@ menu.classList.remove("dim");
 
 
 </html>
+
 
 
 
