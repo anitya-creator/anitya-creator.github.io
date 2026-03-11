@@ -415,7 +415,28 @@ color:#bfbfe6;
     .tutorial-box button{
 margin-top:25px;
 }
+.page-transition{
 
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:black;
+
+transform:translateX(100%);
+
+z-index:9999;
+
+transition:transform 0.8s ease;
+
+}
+
+.page-transition.active{
+transform:translateX(0);
+}
 @keyframes float{
 
 0%{transform:translateY(0);}
@@ -687,6 +708,7 @@ menu.classList.remove("dim");
 
 
 </html>
+
 
 
 
