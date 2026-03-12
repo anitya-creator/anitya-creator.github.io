@@ -6,6 +6,9 @@
 <head>
 <title>Wheel</title>
 <style>
+    html{
+scroll-behavior:smooth;
+}
     body{
 
 opacity:0;
@@ -503,6 +506,67 @@ opacity: 1;
 transform: translateY(0);
 }
 }
+    section{
+
+min-height:100vh;
+
+padding:120px 80px;
+
+color:white;
+
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+
+}
+
+section.show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+.explore{
+background:#050510;
+}
+
+.about{
+background:#080820;
+}
+
+.contact{
+background:#050510;
+}
+
+.worlds{
+
+display:flex;
+gap:40px;
+margin-top:60px;
+
+}
+
+.world-card{
+
+background:rgba(255,255,255,0.05);
+
+padding:30px;
+
+border-radius:12px;
+
+width:260px;
+
+transition:0.4s;
+
+}
+
+.world-card:hover{
+
+transform:translateY(-8px);
+background:rgba(255,255,255,0.1);
+
+}
 
 </style>
 </head>
@@ -548,7 +612,7 @@ transform: translateY(0);
 <div class="dropdown-content">
 <a href="#">Email</a>
 <a href="#">Discord</a>
-<a href="contact.html">Support</a>
+<a href="#contact">Support</a>
 </div>
 </div>
 
@@ -621,7 +685,52 @@ transform: translateY(0);
 
 </div>
 </div>
-         
+<section class="explore" id="explore">
+
+<h2>Explore Worlds</h2>
+
+<div class="worlds">
+
+<div class="world-card">
+<h3>Adventure</h3>
+<p>Climb mountains and explore unknown lands.</p>
+</div>
+
+<div class="world-card">
+<h3>Fantasy</h3>
+<p>Enter magical kingdoms full of dragons and myths.</p>
+</div>
+
+<div class="world-card">
+<h3>Sci-Fi</h3>
+<p>Travel through galaxies and futuristic civilizations.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="about" id="about">
+
+<h2>About AWheel</h2>
+
+<p>
+AWheel is a gateway to immersive worlds where imagination
+and simulation merge into powerful experiences.
+</p>
+
+</section>
+
+
+<section class="contact" id="contact">
+
+<h2>Contact</h2>
+
+<p>Email : hello@awheel.com</p>
+<p>Discord : AWheel Community</p>
+
+</section>         
 <script>
 
 const ninja = document.getElementById("ninja");
@@ -723,30 +832,25 @@ window.onload = ()=>{
 document.body.classList.add("loaded");
 }
 
+const sections = document.querySelectorAll("section");
 
-const links = document.querySelectorAll("a[href$='.html']");
+const observer = new IntersectionObserver((entries)=>{
 
-links.forEach(link=>{
+entries.forEach(entry=>{
 
-link.addEventListener("click",function(e){
+if(entry.isIntersecting){
 
-const target = this.href;
+entry.target.classList.add("show");
 
-if(target.includes("#")) return;
-
-e.preventDefault();
-
-document.body.style.opacity = "0";
-document.body.style.transform = "translateX(-40px)";
-
-setTimeout(()=>{
-window.location = target;
-},600);
+}
 
 });
 
-});
+},{threshold:0.3});
 
+sections.forEach(section=>{
+observer.observe(section);
+});
 
 </script>
 </body>
@@ -754,6 +858,7 @@ window.location = target;
 
 
 </html>
+
 
 
 
